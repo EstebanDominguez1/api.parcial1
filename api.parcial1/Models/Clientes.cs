@@ -15,9 +15,5 @@ namespace api.parcial1.Models
         public DateTime? FechaNacimiento { get; set; }
         public string? Ciudad { get; set; }
         public string? Nacionalidad { get; set; }
-
-        [ForeignKey("IdCiudad")]
-
-        public Ciudades? Ciudades { get; set; }
     }
 }
