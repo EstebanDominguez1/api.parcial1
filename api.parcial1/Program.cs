@@ -27,6 +27,7 @@ if (app.Environment.IsDevelopment())
 
 app.UseHttpsRedirection();
 
+
 app.MapPost("/clientes/", async (Clientes clientes, DbPrimerParcial db) =>
 {
     db.Clientes.Add(clientes);
@@ -37,13 +38,25 @@ app.MapPost("/clientes/", async (Clientes clientes, DbPrimerParcial db) =>
 
 app.MapGet("/clientes/{id:int}", (int id, DbPrimerParcial db) =>
 {
-    /*return await db.Clientes.FindAsync(id)
-              is Clientes cliente ? Results.Ok(cliente) : Results.NotFound();*/
 
     var query = db.Clientes
                            .Where(s => s.Id == id)
                            .Include(s => s.Ciudades)
                            .FirstOrDefault();
+
+    return Task.FromResult(query);
+});
+
+app.MapGet("/ListClientes/", (DbPrimerParcial db) =>
+{
+    var query = db.Clientes.Include(s => s.Ciudades).ToList();
+
+    return Task.FromResult(query);
+});
+
+app.MapGet("/ListCiudades/", (DbPrimerParcial db) =>
+{
+    var query = db.Ciudades.ToList();
 
     return Task.FromResult(query);
 });

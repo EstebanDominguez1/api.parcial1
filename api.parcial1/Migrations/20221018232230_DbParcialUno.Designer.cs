@@ -12,8 +12,8 @@ using api.parcial1.Data;
 namespace api.parcial1.Migrations
 {
     [DbContext(typeof(DbPrimerParcial))]
-    [Migration("20220914003759_DbPrimerParcialApi")]
-    partial class DbPrimerParcialApi
+    [Migration("20221018232230_DbParcialUno")]
+    partial class DbParcialUno
     {
         protected override void BuildTargetModel(ModelBuilder modelBuilder)
         {

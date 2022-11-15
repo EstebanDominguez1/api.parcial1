@@ -6,7 +6,7 @@ using Npgsql.EntityFrameworkCore.PostgreSQL.Metadata;
 
 namespace api.parcial1.Migrations
 {
-    public partial class DbPrimerParcialApi : Migration
+    public partial class DbParcialUno : Migration
     {
         protected override void Up(MigrationBuilder migrationBuilder)
         {
